@@ -1,62 +1,96 @@
-import {Component} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {IProduct} from './products';
 
 @Component({
   selector: 'pm-products',
-  templateUrl: './product-list.component.html'
+  templateUrl: './product-list.component.html',
+  styleUrls: ['./product-list.component.css']
 })
 
-export class ProductListComponent{
-  pageTitle: string ='Product List';
-  products: any[] = [
+export class ProductListComponent implements OnInit{
+  pageTitle: string = 'Product List';
+  imageWidth: number = 50;
+  imageMargin: number = 2;
+  showImage: boolean = false;
+
+  _listFilter: string;
+
+  get listFilter(): string{
+    return this._listFilter;
+  }
+
+  set listFilter(value: string){
+    this._listFilter = value;
+    this.filteredProducts = this.listFilter ? this.performFilter(this.listFilter) : this.products;
+  }
+
+filteredProducts: IProduct[];
+  products: IProduct[] = [
       {
         "productId": 1,
         "productName": "Mjolnir",
-        "productCode": "GDN-0011",
-        "releaseDate": "March 19, 2016",
-        "description": "Leaf rake with 48-inch wooden handle.",
-        "price": 19.95,
-        "starRating": 3.2,
-        "imageUrl": "https://openclipart.org/image/300px/svg_to_png/26215/Anonymous_Leaf_Rake.png"
+        "productCode": "GOD-001",
+        "releaseDate": "March 19, 720ac",
+        "description": "Hammer from the God of hammers",
+        "rateStar":"",
+        "imageUrl": "https://ae01.alicdn.com/kf/HTB1FjN5KFXXXXa6XFXXq6xXFXXXx/1-1-Scale-Full-Metal-Thor-Hammer-Mjolnir-1-1-Replica-Thor-Custom-Cosplay-Hammer-Collection.jpg_640x640.jpg"
       },
       {
         "productId": 2,
         "productName": "Shield",
-        "productCode": "GDN-0023",
-        "releaseDate": "March 18, 2016",
-        "description": "15 gallon capacity rolling garden cart",
-        "price": 32.99,
-        "starRating": 4.2,
-        "imageUrl": "https://openclipart.org/image/300px/svg_to_png/58471/garden_cart.png"
+        "productCode": "shd-s001",
+        "releaseDate": "July 4, 1918",
+        "description": "Shield from the best and first Avenger",
+        "rateStar":"",
+        "imageUrl": "https://vignette.wikia.nocookie.net/marvelcinematicuniverse/images/3/36/Captain_America_Shield.png"
+      },
+      {
+        "productId": 3,
+        "productName": "Mark 85",
+        "productCode": "MRK-085",
+        "releaseDate": "May 21, 2010",
+        "description": "Armor built by Tony, Peter's stepfather",
+        "rateStar":"",
+        "imageUrl": "https://i.pinimg.com/originals/85/92/ac/8592ac87e060126bc6c0f774331160f5.jpg"
+      },
+      {
+        "productId": 4,
+        "productName": "Bow",
+        "productCode": "BOW-001",
+        "releaseDate": "May 15, 2012",
+        "description": "Bow used by Gavigod, the second best avenger",
+        "rateStar":"",
+        "imageUrl": "https://images-na.ssl-images-amazon.com/images/I/61LLL6iFi4L._SL1000_.jpg"
       },
       {
         "productId": 5,
-        "productName": "Mark 85",
-        "productCode": "TBX-0048",
-        "releaseDate": "May 21, 2016",
-        "description": "Curved claw steel hammer",
-        "price": 8.9,
-        "starRating": 4.8,
-        "imageUrl": "https://openclipart.org/image/300px/svg_to_png/73/rejon_Hammer.png"
-      },
-      {
-        "productId": 8,
-        "productName": "Bow",
-        "productCode": "TBX-0022",
-        "releaseDate": "May 15, 2016",
-        "description": "15-inch steel blade hand saw",
-        "price": 11.55,
-        "starRating": 3.7,
-        "imageUrl": "https://openclipart.org/image/300px/svg_to_png/27070/egore911_saw.png"
-      },
-      {
-        "productId": 10,
         "productName": "A Hulk",
-        "productCode": "GMG-0042",
-        "releaseDate": "October 15, 2015",
-        "description": "Standard two-button video game controller",
-        "price": 35.95,
-        "starRating": 4.6,
-        "imageUrl": "https://openclipart.org/image/300px/svg_to_png/120337/xbox-controller_01.png"
+        "productCode": "HLK-001",
+        "releaseDate": "October 15, 2008",
+        "description": "The useless Giant Emerald who learned to snap his fingers",
+        "rateStar":"",
+        "imageUrl": "https://lojamultilaser.vteximg.com.br/arquivos/ids/177848-1000-1000/pd082_01.jpg"
       }
-  ]
+  ];
+
+  constructor() {
+    this.filteredProducts = this.products;
+    this.listFilter = 'cart';
+  }
+
+//convert words to lowercase, so we can compare at the moment we need to filter
+//returns the list os products
+  performFilter(filterBy: string): IProduct[]{
+    filterBy = filterBy.toLocaleLowerCase();
+    return this.products.filter((product : IProduct) =>
+          product.productName.toLocaleLowerCase().indexOf(filterBy) !== -1);
+  }
+
+  toggleImage():void{
+    this.showImage = !this.showImage;
+  }
+
+  ngOnInit(): void{
+    console.log('In OnInit');
+  }
 }
