@@ -40,7 +40,7 @@ filteredProducts: IProduct[];
         "productName": "Shield",
         "productCode": "shd-s001",
         "releaseDate": "July 4, 1918",
-        "description": "Shield from the best and first Avenger",
+        "description": "Shield from the first Avenger",
         "rateStar":"",
         "imageUrl": "https://vignette.wikia.nocookie.net/marvelcinematicuniverse/images/3/36/Captain_America_Shield.png"
       },
@@ -49,7 +49,7 @@ filteredProducts: IProduct[];
         "productName": "Mark 85",
         "productCode": "MRK-085",
         "releaseDate": "May 21, 2010",
-        "description": "Armor built by Tony, Peter's stepfather",
+        "description": "Iron man best armor",
         "rateStar":"",
         "imageUrl": "https://i.pinimg.com/originals/85/92/ac/8592ac87e060126bc6c0f774331160f5.jpg"
       },
@@ -58,7 +58,7 @@ filteredProducts: IProduct[];
         "productName": "Bow",
         "productCode": "BOW-001",
         "releaseDate": "May 15, 2012",
-        "description": "Bow used by Gavigod, the second best avenger",
+        "description": "Bow used by Hawkeye",
         "rateStar":"",
         "imageUrl": "https://images-na.ssl-images-amazon.com/images/I/61LLL6iFi4L._SL1000_.jpg"
       },
@@ -67,7 +67,7 @@ filteredProducts: IProduct[];
         "productName": "A Hulk",
         "productCode": "HLK-001",
         "releaseDate": "October 15, 2008",
-        "description": "The useless Giant Emerald who learned to snap his fingers",
+        "description": "The Emerald Giant who learned how to snap his fingers",
         "rateStar":"",
         "imageUrl": "https://lojamultilaser.vteximg.com.br/arquivos/ids/177848-1000-1000/pd082_01.jpg"
       }
