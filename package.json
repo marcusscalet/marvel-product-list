@@ -23,6 +23,8 @@
     "bootstrap": "^4.3.1",
     "core-js": "^2.6.9",
     "font-awesome": "^4.7.0",
+    "primeicons": "^7.0.0",
+    "primeng": "^8.0.0",
     "rxjs": "~6.5.2",
     "zone.js": "^0.9.1"
   },
